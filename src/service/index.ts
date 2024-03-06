@@ -26,9 +26,9 @@ export const getCourses = async (): Promise<Course[]> => {
         return {id,title,label};
     }
     ).get();
-    courses.filter(course => course.label ==='교과학부');
-    console.log(courses, "From getCourses");
-    return courses;
+    const filteredCourses = courses.filter(course => course.label ==='교과학부');
+    console.log(filteredCourses, "From getCourses");
+    return filteredCourses;
 }
   
 export function getLinkId(link: string | undefined):string {
@@ -60,14 +60,15 @@ const getVideoFromCourse = (
     courseId: string,
     courseTitle: string
 ): Video[]=>{
-    return $('li.section.main.clearfix').map((i,el)=>{
+    return $('.total-sections li.section.main.clearfix').map((i,el)=>{
         const sectionTitle = $(el).find('h3.sectionname span').text().trim();
         return $(el).find('.activity.vod.modtype_vod').map((i,el):Video=>{
             const urlMatch = $(el).find('a').attr('onclick')?.match(/'([^']+)'/);
             const link = urlMatch ? urlMatch[1]:'';
             const id = getLinkId(link);
             const title = $(el).find('span .instancename').text().trim();
-            const [startAt, endAt] = $(el).find('span text-ubstrap').text().trim().replace(/&nbsp;/g, ' ').trim().split(' ~ ');
+            console.log($(el).find('span .text-upstrap').html());
+            const [startAt, endAt] = $(el).find('span .text-ubstrap').text().trim().replace(/&nbsp;/g, ' ').trim().split(' ~ ');
             const checkbox = $(el).find('img.icon').attr('title');
             const hasSubmitted = checkbox ? checkbox.includes('완료함') : false;
             return {
