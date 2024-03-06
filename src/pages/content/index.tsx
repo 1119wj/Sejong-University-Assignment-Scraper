@@ -1,20 +1,25 @@
-import { createRoot } from 'react-dom/client';
-import './style.css' 
-const div = document.createElement('div');
-div.id = '__root';
-document.body.appendChild(div);
+import { createRoot } from 'react-dom/client'
+import { getCourses } from '@src/service'
+import App from '@src/pages/content/App'
+import { ThemeProvider, createTheme } from '@mui/material'
+const root = document.createElement('div')
+root.id = 'root'
+document.body.append(root)
 
-const rootContainer = document.querySelector('#__root');
-if (!rootContainer) throw new Error("Can't find Options root element");
-const root = createRoot(rootContainer);
-root.render(
-  <div className='absolute bottom-0 left-0 text-lg text-black bg-amber-400 z-50'  >
-    content script loaded
-  </div>
+const modal = document.createElement('div')
+modal.id = 'modal'
+document.body.append(modal)
+
+const theme = createTheme({
+    typography:{
+        fontFamily:[
+
+        ]
+    }
+});
+
+createRoot(root).render(
+    <ThemeProvider theme={theme}>   
+        <App />
+    </ThemeProvider>
 );
-
-try {
-  console.log('content script loaded');
-} catch (e) {
-  console.error(e);
-}

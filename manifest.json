@@ -15,27 +15,20 @@
       "32": "icon-32.png"
     }
   },
-  "chrome_url_overrides": {
-    "newtab": "src/pages/newtab/index.html"
-  },
   "icons": {
     "128": "icon-128.png"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*",
-        "<all_urls>"
+        "https://ecampus.sejong.ac.kr/*"
       ],
       "js": [
         "src/pages/content/index.tsx"
-      ],
-      "css": [
-        "contentStyle.css"
       ]
     }
   ],
