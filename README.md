@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/1119wj/Sejong-University-Assignment-Scraper/assets/95432846/ada7bf2b-a6f6-40e2-921e-b3cf316ad7a8" alt="logo"/>
+<img src="https://github.com/1119wj/Sejong-University-Assignment-Scraper/assets/95432846/2c9f2c71-1f26-43e9-a286-4b88706f85ee" alt="logo"/>
 <h1> 세종대학교 과제 알리미</h1>
 </div>
 <div align = "center">
