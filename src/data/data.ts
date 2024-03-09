@@ -83,7 +83,8 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: '1 week Pretest',
     type: 'assignment',
-    sectionTitle:'1주차'
+    sectionTitle:'1주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '9127',
@@ -94,7 +95,8 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: '1 week Pretest',
     type: 'assignment',
-    sectionTitle:'3주차'
+    sectionTitle:'3주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '9127',
@@ -105,7 +107,8 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: '1 week Pretest',
     type: 'assignment',
-    sectionTitle:'2주차'
+    sectionTitle:'2주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '9127',
@@ -116,7 +119,8 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: '1 week Pretest',
     type: 'assignment',
-    sectionTitle:'1주차'
+    sectionTitle:'1주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '10258',sectionTitle:'1주차',
@@ -127,6 +131,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: 'Assignment 1',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '10258',sectionTitle:'1주차',
@@ -137,6 +142,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: 'Assignment 1',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10258',sectionTitle:'1주차',
@@ -146,7 +152,7 @@ export const ActivityData: ActivityType[] = [
     id: '605374',
     startAt: '',
     title: 'Assignment 1',
-    type: 'assignment',
+    type: 'assignment',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10258',sectionTitle:'1주차',
@@ -157,6 +163,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: 'Assignment 1',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10258',sectionTitle:'1주차',
@@ -167,6 +174,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '',
     title: 'Assignment 1',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -177,7 +185,8 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -188,7 +197,8 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -199,7 +209,8 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -210,7 +221,8 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -221,7 +233,8 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '9478',
@@ -232,7 +245,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '7주차',
     startAt: '2024-10-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '10709',
@@ -243,6 +256,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '2024-03-14 00:00:00',
     title: 'Quiz 3',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10709',
@@ -253,6 +267,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '2024-03-14 00:00:00',
     title: 'Quiz 3',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10709',
@@ -263,6 +278,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '2024-03-14 00:00:00',
     title: 'Quiz 3',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10709',
@@ -273,6 +289,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '2024-03-14 00:00:00',
     title: 'Quiz 3',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '10709',
@@ -283,6 +300,7 @@ export const ActivityData: ActivityType[] = [
     startAt: '2024-03-14 00:00:00',
     title: 'Quiz 3',
     type: 'assignment',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',
   },
   {
     courseId: '82194',
@@ -292,7 +310,9 @@ export const ActivityData: ActivityType[] = [
     id: '561709',
     startAt: '2022-11-25 13:00:00',
     title: 'Programming Test #9',
-    type: 'assignment',sectionTitle:'1주차'
+    type: 'assignment',
+    sectionTitle:'1주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '82194',
@@ -302,7 +322,9 @@ export const ActivityData: ActivityType[] = [
     id: '561715',
     startAt: '2022-12-02 13:00:00',
     title: 'Programming Test #10',
-    type: 'assignment',sectionTitle:'1주차'
+    type: 'assignment',
+    sectionTitle:'1주차',
+    link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -313,7 +335,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -324,7 +346,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -335,7 +357,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -346,7 +368,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -357,7 +379,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -368,7 +390,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -379,7 +401,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -390,7 +412,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -401,7 +423,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -412,7 +434,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -423,7 +445,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -434,7 +456,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -445,7 +467,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -456,7 +478,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
   {
     courseId: '11558',
@@ -467,7 +489,7 @@ export const ActivityData: ActivityType[] = [
     sectionTitle: '3주차',
     startAt: '2024-09-08 14:15:00',
     title: '(Makeup class for 9/9) Ch02. Basic Computation (I)',
-    type: 'video',
+    type: 'vod',link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680'
   },
 ]
 
