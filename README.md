@@ -9,11 +9,10 @@
 
 ### 소개
 세종대학교 집현캠퍼스에서 놓친 동영상 강의나 과제를 스크래핑해서
-모아주는 과제 알리미 익스텐션입니다. 
+모아주는 과제 알리미 익스텐션입니다. 크롬 알림 기능이 추가될 예정입니다.
 
----
 ### 사용법
-1. (현재 심의중)chrome web store에서 세종대학교 과제알리미 다운로드.
+1. (현재 심의중)[chrome web store](https://chromewebstore.google.com/)에서 세종대학교 과제알리미 다운로드.
 2. 집현캠퍼스 로그인.
 3. 좌측 하단 세종대학교 로고버튼 클릭.
 <img src = "https://github.com/1119wj/Sejong-University-Assignment-Scraper/assets/95432846/17081df5-6c93-43af-86cd-35a7aeae8147">
