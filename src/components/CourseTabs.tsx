@@ -1,10 +1,9 @@
-
-
-
 import { Box, Tab, Tabs } from '@mui/material'
 
+
 import type { Course } from '@src/types'
-import { courseData } from '@src/data/data'
+import { courseData } from '@src/data/data' // for Test 
+
 type Props = {
     courseList: Course[]
     selectedCourseId: string
@@ -12,7 +11,7 @@ type Props = {
   }
 
   const CourseTabs = ({ courseList, selectedCourseId, setSelectedCourseId }: Props) => {
-    console.log(selectedCourseId);
+    //console.log(selectedCourseId);
     return (
         <Box display="flex" sx={{width:'40%',height:'90%'}}>
         <Tabs

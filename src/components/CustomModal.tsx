@@ -18,12 +18,15 @@ type Props = {
   const CustomModal = ({ isOpen, onClose }: Props) => {
 
     const [selectedCourseId, setSelectedCourseId] = useState('-1')
+    const [onAlram, setOnAlram] = useState(true);
     const {
       data: { courseList, activityList, updateAt },
       progress,
+
       refetch,
       isLoading,
-    } = useGetContents({ enabled: isOpen })
+    } = useGetContents({ enabled: isOpen , OnAlram:onAlram});
+
     const style = {
       position: "absolute",
       top: "50%",
@@ -65,7 +68,8 @@ type Props = {
             <Activity_list activityList={activityList} 
             selectedCourseId={selectedCourseId}
             pos={progress}
-            isLoading={isLoading}></Activity_list>
+            isLoading={isLoading}>
+            </Activity_list>
           </Box>
           <Button sx={{border:'none', color:'#797979',"&:focus":{
                 outline:'none',

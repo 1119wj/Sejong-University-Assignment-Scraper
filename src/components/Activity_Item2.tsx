@@ -1,19 +1,21 @@
 
-import { differenceInHours, format, formatDistanceToNowStrict, isValid } from 'date-fns'
-import {ko} from 'date-fns/locale';
-import { ListItem,ListItemAvatar,Avatar,ListItemText, ListItemButton, Box, Typography } from '@mui/material';
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import {Video,Assignment,Quiz} from '@src/types/index';
 
-import {ActivityType,Video,Assignment} from '@src/types/index';
+
+import { differenceInHours, formatDistanceToNowStrict, isValid } from 'date-fns'
+import {ko} from 'date-fns/locale';
+import { ListItem,ListItemButton, Box, Typography } from '@mui/material';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import { keyframes } from '@mui/system';
 
 
+
 type Props = {
-    activity: Video|Assignment;
+    activity: Video|Assignment|Quiz;
 }
 
 const Activity_item = ({activity}: Props)=>{
-    console.log(activity.title, "From Activity_item");
+    //console.log(activity.title, "From Activity_item");
     const endAtDate = new Date(activity.endAt);
     const now = new Date();
     const hoursDiff = differenceInHours(endAtDate,now);
@@ -43,7 +45,7 @@ const Activity_item = ({activity}: Props)=>{
          boxShadow:'2', 
          bgcolor:'#f5f5f5', 
          marginBottom:'5px',
-         ...(dDay !== false &&  hoursDiff <= 24 && hoursDiff >0 &&{
+         ...(dDay !== false &&  hoursDiff <= 48 && hoursDiff >0 &&{
           animation: `${vibration} 0.2s infinite`
          })
          }}>
@@ -66,7 +68,7 @@ const Activity_item = ({activity}: Props)=>{
                 <Typography sx={{fontSize:'12px', color:'#8f8e8e'}}>{activity.endAt}</Typography>
               </Box>
               {/* <ListItemText sx={{marginRight:'5px', width:'150px'}} primary={D_day} secondary={activity.endAt}/> */}
-              <ListItemButton sx={{display:'flex',justifyContent:'center', marginLeft:'20px', flexGrow:'0', width:'60px',height:'60px',p:'0',"&:hover":{color:'#b62724'}}} onClick={()=> openInNewTab(`https://ecampus.sejong.ac.kr/course/view.php?id=${activity.courseId}`)}>
+              <ListItemButton sx={{display:'flex',justifyContent:'center', marginLeft:'20px', flexGrow:'0', width:'60px',height:'60px',p:'0',"&:hover":{color:'#b62724'}}} onClick={()=> openInNewTab(activity.link)}>
                 <ArrowCircleRightOutlinedIcon/>
               </ListItemButton>
         </ListItem>

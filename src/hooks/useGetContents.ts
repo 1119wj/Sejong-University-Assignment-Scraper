@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
+
 import { getActivities,  getCourses } from '@src/service'
 import type { Contents } from '@src/types'
+import { differenceInHours } from 'date-fns'
+
 type Options = {
     enabled?: boolean
     refreshTime?: number
@@ -11,7 +14,7 @@ const useGetContents = (options:Options)=>{
     const _options = { // 객체를 스프레드 연산자로 결합할 경우
         enabled: true, // 나중에 등장하는 객체 맴버 값으로 덮어씌워짐
         refreshTime: 1000 * 60 * 20, // 20분
-        OnAlram : true,
+        onAlram: true,
         ...options, 
       };
     const [isLoading,setIsLoading] = useState(false);
@@ -23,16 +26,16 @@ const useGetContents = (options:Options)=>{
     });
     const getData = async ()=>{
         const courses = await getCourses(); //비동기적으로 코스정보배열 불러오기
-        console.log(courses);
+        //console.log(courses);
         const maxProgress = courses.length*2; // Progress 표현할 변수
         let curProgress = 0;
         const activitiesPromises = courses.map((course) => 
-      getActivities(course.id, course.title).catch((error) => {
+          getActivities(course.id, course.title).catch((error) => {
         // 각각의 getActivities 실행에서 오류가 발생하면, 여기서 그 오류를 캐치합니다.
-        console.error(`Error getting activities for course ${course.id}:`, error);
+          console.error(`Error getting activities for course ${course.id}:`, error);
         return []; // 오류가 발생한 코스에 대해서는 빈 배열을 반환합니다.
-      })
-    );
+        })
+      );
     let activities = (await Promise.all(activitiesPromises)).flat();
         // let activities = await Promise.all(
         //     courses.map(async course=>{ //map함수로 Promise[]을 all로 모두 resolve
@@ -40,9 +43,17 @@ const useGetContents = (options:Options)=>{
         //     }
         //     )
         // ).then(activities=> activities.flat());
-        console.log(activities,"From Promise");
+        //console.log(activities,"From Promise");
+        const copy = [...activities];
         const updateAt = new Date().toISOString();
-
+        const now = new Date();
+        if(copy.some(activity => {
+          const endAtDate = new Date(activity.endAt);
+          const hoursDiff = differenceInHours(endAtDate,now);
+          return hoursDiff>0 && hoursDiff<=10000;
+        }) && options.OnAlram){
+          chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: "마감일자가 얼마 남지 않은 활동이 존재합니다."});
+        }
         chrome.storage.local.set({
             courses,
             activities,
@@ -59,6 +70,7 @@ const useGetContents = (options:Options)=>{
     const getLocalData = () => {
         console.log("getLocalData !");
         chrome.storage.local.get(({ updateAt, courses, activities }) => {
+          //console.log(updateAt,courses,activities);
           if (!updateAt || !courses || !activities) {
             setIsLoading(true);
             return getData();
@@ -91,15 +103,15 @@ const useGetContents = (options:Options)=>{
           if (_options.refreshTime < new Date().getTime() - new Date(data.updateAt).getTime()) {
             refetch();
           } else {
-            refetch();
-            //getLocalData();
+            //refetch();
+            getLocalData();
           }
         }
       }, [_options.enabled]);
     
       useEffect(() => {
-        refetch();
-        //getLocalData();
+        //refetch();
+        getLocalData();
       }, []);
     
       return { data, progress, isLoading, refetch };

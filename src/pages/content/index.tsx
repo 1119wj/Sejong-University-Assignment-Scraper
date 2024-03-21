@@ -1,7 +1,11 @@
-import { createRoot } from 'react-dom/client'
-import { getCourses } from '@src/service'
 import App from '@src/pages/content/App'
+
+import '@assets/styles/font.css';
+
+import { createRoot } from 'react-dom/client'
 import { ThemeProvider, createTheme } from '@mui/material'
+
+
 const root = document.createElement('div')
 root.id = 'root'
 document.body.append(root)
@@ -12,9 +16,8 @@ document.body.append(modal)
 
 const theme = createTheme({
     typography:{
-        fontFamily:[
-
-        ]
+        fontFamily:
+            'NotoSansKR, Arial, sans-serif',
     }
 });
 

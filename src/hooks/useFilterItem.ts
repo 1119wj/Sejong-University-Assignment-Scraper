@@ -1,5 +1,5 @@
 
-import { isValid } from 'date-fns'
+import { isValid, parseISO } from 'date-fns'
 
 import type { ActivityType } from '@src/types'
 
@@ -11,6 +11,10 @@ const activityListByCourse = (activityList: ActivityType[], id: string) => {
     }
   
     return activityList.filter(activity => activity.courseId === id); // filter로 courseId 와 같은 아이템만 걸러서 반환
+  }
+  const filterByStartDay = (activityList:ActivityType[]) =>{
+    const now = new Date();
+    return activityList.filter(activity => parseISO(activity.startAt) < now || activity.startAt==='');
   }
   const sortAcitivityList = (activityList: ActivityType[]) => {
     const [endAtList, noEndAtList] = activityList.reduce<[ActivityType[], ActivityType[]]>( //기한이 있는 아이템과 제출기한이 없는 아이템을 분류하는 작업
@@ -36,7 +40,7 @@ const activityListByCourse = (activityList: ActivityType[], id: string) => {
   type PipeFunction = (activities: ActivityType[]) => ActivityType[];
   
 
-  function pipe(fn1: PipeFunction, fn2: PipeFunction, fn3: PipeFunction): PipeFunction;
+  function pipe(fn1: PipeFunction, fn2: PipeFunction, fn3: PipeFunction, fn4: PipeFunction): PipeFunction;
   
   function pipe(...fns: Function[]) {
     return (initialValue: any) => fns.reduce((acc, fn) => fn(acc), initialValue);
@@ -47,6 +51,7 @@ const activityListByCourse = (activityList: ActivityType[], id: string) => {
   ) => {
     return pipe(
       activityList => activityListByCourse(activityList, selectedCourseId),
+      activityList => filterByStartDay(activityList),
       activityList => activityListBySubmitted(activityList),
       activityList => sortAcitivityList(activityList),
     )(activityList);

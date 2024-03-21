@@ -19,8 +19,8 @@
     "128": "img.png"
   },
   "permissions": [
-    "activeTab",
-    "storage"
+    "storage",
+    "notifications"
   ],
   "content_scripts": [
     {
@@ -29,7 +29,8 @@
       ],
       "exclude_matches":["https://ecampus.sejong.ac.kr/mod/vod/viewer.php*",
       "https://ecampus.sejong.ac.kr/login.php*",
-      "https://ecampus.sejong.ac.kr/mod/upfile/viewer.php*"
+      "https://ecampus.sejong.ac.kr/mod/upfile/viewer.php*",
+      "https://ecampus.sejong.ac.kr/"
     ],
       "js": [
         "src/pages/content/index.tsx"
@@ -37,12 +38,9 @@
       "css":["src/assets/styles/font.css"]
     }
   ],
-  "devtools_page": "src/pages/devtools/index.html",
   "web_accessible_resources": [
     {
       "resources": [
-        "icon-128.png",
-        "icon-32.png",
         "src/assets/styles/font.css",
         "src/assets/fonts/*",
         "src/assets/img/main.png"
