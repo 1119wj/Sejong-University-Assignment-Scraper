@@ -1,13 +1,10 @@
-
-import {Video,Assignment,Quiz} from '@src/types/index';
-
-
 import { differenceInHours, formatDistanceToNowStrict, isValid } from 'date-fns'
 import {ko} from 'date-fns/locale';
 import { ListItem,ListItemButton, Box, Typography } from '@mui/material';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import { keyframes } from '@mui/system';
 
+import {Video,Assignment,Quiz} from '@src/types/index';
 
 
 type Props = {
@@ -46,7 +43,10 @@ const Activity_item = ({activity}: Props)=>{
          bgcolor:'#f5f5f5', 
          marginBottom:'5px',
          ...(dDay !== false &&  hoursDiff <= 48 && hoursDiff >0 &&{
-          animation: `${vibration} 0.2s infinite`
+          animation: `${vibration} 0.2s 25`,
+          borderColor: '#b62724',
+          borderStyle: 'solid',
+          borderWidth: '1.5px', 
          })
          }}>
         <ListItem>

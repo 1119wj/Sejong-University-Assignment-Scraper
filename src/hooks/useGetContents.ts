@@ -44,16 +44,8 @@ const useGetContents = (options:Options)=>{
         //     )
         // ).then(activities=> activities.flat());
         //console.log(activities,"From Promise");
-        const copy = [...activities];
         const updateAt = new Date().toISOString();
-        const now = new Date();
-        if(copy.some(activity => {
-          const endAtDate = new Date(activity.endAt);
-          const hoursDiff = differenceInHours(endAtDate,now);
-          return hoursDiff>0 && hoursDiff<=10000;
-        }) && options.OnAlram){
-          chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: "마감일자가 얼마 남지 않은 활동이 존재합니다."});
-        }
+        
         chrome.storage.local.set({
             courses,
             activities,
@@ -92,12 +84,26 @@ const useGetContents = (options:Options)=>{
         if (isLoading) return;
         setIsLoading(true);
         getData();
+        notificate();
       }
-    
+      const notificate = ()=>{
+        chrome.storage.local.get(({updateAt,courses,activities}) =>{
+          const copy = [...activities];
+          const now = new Date();
+          if(copy.some(activity => {
+            const endAtDate = new Date(activity.endAt);
+            const hoursDiff = differenceInHours(endAtDate,now);
+            return hoursDiff>0 && hoursDiff<=10000;
+          }) && options.OnAlram){
+            chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: "마감일자가 얼마 남지 않은 활동이 존재합니다."});
+          }
+        });
+      }
       useEffect(() => {
         if (isLoading) {
           console.log("Is Loading!!");
-          return};
+          return;
+        };
     
         if (_options.enabled) {
           if (_options.refreshTime < new Date().getTime() - new Date(data.updateAt).getTime()) {
@@ -112,8 +118,12 @@ const useGetContents = (options:Options)=>{
       useEffect(() => {
         //refetch();
         getLocalData();
+        const currentUrl = window.location.href;
+        if (currentUrl === "https://ecampus.sejong.ac.kr/dashboard.php") {
+          notificate();
+        }
       }, []);
-    
+      
       return { data, progress, isLoading, refetch };
     };
 export default useGetContents;
