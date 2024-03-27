@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { getActivities,  getCourses } from '@src/service'
-import type { Contents } from '@src/types'
+import type { ActivityType, Contents } from '@src/types'
 import { differenceInHours } from 'date-fns'
 
 type Options = {
@@ -88,12 +88,13 @@ const useGetContents = (options:Options)=>{
       }
       const notificate = ()=>{
         chrome.storage.local.get(({updateAt,courses,activities}) =>{
-          const copy = [...activities];
+          const factivities = activities as ActivityType[];
+          const copy = [...factivities];
           const now = new Date();
           if(copy.some(activity => {
             const endAtDate = new Date(activity.endAt);
             const hoursDiff = differenceInHours(endAtDate,now);
-            return hoursDiff>0 && hoursDiff<=48;
+            return hoursDiff>0 && hoursDiff<=48 &&activity.hasSubmitted == false;
           }) && options.OnAlram){
             chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: "마감일자가 얼마 남지 않은 활동이 존재합니다."});
           }
