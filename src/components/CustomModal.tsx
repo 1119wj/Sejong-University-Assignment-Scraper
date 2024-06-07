@@ -41,9 +41,8 @@ type Props = {
       p: 4
     };
     const logo = chrome.runtime.getURL('/src/assets/img/main.png');
-    console.log(activityList,"From Custom Modal");
     const updateAtDate = new Date(updateAt);
-    console.log(updateAtDate, isValid(updateAtDate));
+    
     return (
       <Modal open= {isOpen} onClose={onClose}>
         <Box sx={style}>

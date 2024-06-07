@@ -136,7 +136,7 @@ export const ActivityData: ActivityType[] = [
   {
     courseId: '10258',sectionTitle:'1주차',
     courseTitle: '일반물리및시뮬레이션 (010206-001) (1학기)송오영',
-    endAt: '2024-11-12 00:00:00',
+    endAt: '2024-06-07 00:00:00',
     hasSubmitted: false,
     id: '605374',
     startAt: '',
@@ -179,11 +179,11 @@ export const ActivityData: ActivityType[] = [
   {
     courseId: '9478',
     courseTitle: '창업과기업가정신1 (009045-003) (1학기)신하얀',
-    endAt: '2024-04-02 23:59:00',
+    endAt: '2024-06-06 23:59:00',
     hasSubmitted: false,
     id: '590146',
     sectionTitle: '7주차',
-    startAt: '2024-10-10 00:00:00',
+    startAt: '2024-05-10 00:00:00',
     title: '7주차 김흥국 작가님 강연',
     type: 'vod',
     link : 'https://ecampus.sejong.ac.kr/mod/vod/viewer.php?id=58680',

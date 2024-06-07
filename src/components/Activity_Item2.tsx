@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Activity_item = ({activity}: Props)=>{
-    //console.log(activity.title, "From Activity_item");
+    
     const endAtDate = new Date(activity.endAt);
     const now = new Date();
     const hoursDiff = differenceInHours(endAtDate,now);
@@ -30,13 +30,15 @@ const Activity_item = ({activity}: Props)=>{
     if (dDay != false){
         D_day = dDay;
     }
-
     const ShortCourseTitle = activity.courseTitle.split('(')[0];
+
     const openInNewTab = (url:string) =>{
       window.open(url,"_blank","noreferrer");
-    };
+  };
+  
     return (
-        <>
+      <>
+        
         <Box borderRadius={2} display={'flex'} justifyContent={'space-between'} sx={{minHeight:'80px', maxHeight:'120px',
          alignItems:'center', 
          boxShadow:'2', 
@@ -50,12 +52,6 @@ const Activity_item = ({activity}: Props)=>{
          })
          }}>
         <ListItem>
-          {/*<Box display={'flex'} width={'100%'} height={'80'} boxShadow={2} borderRadius={2} bgcolor={'#f5f5f5'}>
-              {/* <ListItemAvatar>
-                <Avatar sx={{bgcolor:red[500]}}>
-                  {activity.hasSubmitted ? <ClearIcon/>:<CancelIcon sx={{color: red[500]}} />}
-                </Avatar>
-              </ListItemAvatar> */}
               <Box sx={{marginLeft:'15px',textAlign:'center',}}>
                 <Typography>{activity.sectionTitle}</Typography>
               </Box>
@@ -67,7 +63,7 @@ const Activity_item = ({activity}: Props)=>{
                 <Typography>{D_day ==='기한없음' ? D_day: D_day + " 마감"}</Typography>
                 <Typography sx={{fontSize:'12px', color:'#8f8e8e'}}>{activity.endAt}</Typography>
               </Box>
-              {/* <ListItemText sx={{marginRight:'5px', width:'150px'}} primary={D_day} secondary={activity.endAt}/> */}
+              
               <ListItemButton sx={{display:'flex',justifyContent:'center', marginLeft:'20px', flexGrow:'0', width:'60px',height:'60px',p:'0',"&:hover":{color:'#b62724'}}} onClick={()=> openInNewTab(activity.link)}>
                 <ArrowCircleRightOutlinedIcon/>
               </ListItemButton>
