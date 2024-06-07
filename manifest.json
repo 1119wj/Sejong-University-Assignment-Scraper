@@ -43,7 +43,9 @@
       "resources": [
         "src/assets/styles/font.css",
         "src/assets/fonts/*",
-        "src/assets/img/main.png"
+        "src/assets/img/main.png",
+        "src/assets/img/file.png",
+        "src/assets/img/file2.png"
       ],
       "matches": ["*://*/*"]
     }
