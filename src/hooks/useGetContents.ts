@@ -19,14 +19,13 @@ const useGetContents = (options:Options)=>{
         ...options, 
       };
     const [isLoading,setIsLoading] = useState(false);
-    const [progress,setProgress] = useState(0);
     const [data, setData] = useState<Contents>({
         courseList: [{id:'-1', title:'전체',label:''}],
         activityList: [],
         updateAt : new Date().toISOString(),
     });
   
-    const getData = async ()=>{
+    const getAndSetData = async ()=>{
         const courses = await getCourses();
         const activitiesPromises = courses.map((course) => 
           getActivities(course.id, course.title).catch((error) => {
@@ -48,35 +47,30 @@ const useGetContents = (options:Options)=>{
             activityList: activities,
             updateAt,
         });
-        setProgress(0);
         setIsLoading(false);
   }
   
     const getLocalData = () => {
-        console.log("getLocalData !");
-        chrome.storage.local.get(({ updateAt, courses, activities }) => {
-          //console.log(updateAt,courses,activities);
-          if (!updateAt || !courses || !activities) {
-            setIsLoading(true);
-            return getData();
-          }
+      chrome.storage.local.get(({ updateAt, courses, activities }) => {
+
+        if (!updateAt || !courses || !activities) {
+          setIsLoading(true);
+          return getAndSetData();
+        }
     
-          setData({
-            courseList: [{ id: '-1', title: '전체' }, ...courses],
-            activityList: activities,
-            updateAt,
-          });
-        })
-    
-        setProgress(0);
+        setData({
+          courseList: [{ id: '-1', title: '전체' }, ...courses],
+          activityList: activities,
+          updateAt,
+        });
+      });
         setIsLoading(false);
       }
     
       const refetch = () => {
-        console.log("Refetching");
         if (isLoading) return;
         setIsLoading(true);
-        getData();
+        getAndSetData();
         notificate();
       }
       const notificate = ()=>{
@@ -95,7 +89,7 @@ const useGetContents = (options:Options)=>{
             }
           });
           
-          console.log(NotificateTitles, "NotificateTitles");
+          
           if (NotificateTitles.length && options.OnAlram) {
             NotificateTitles.map((v, i) => {
               chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: `${v}의 마감일자가 얼마 남지 않았습니다.`});
@@ -128,6 +122,6 @@ const useGetContents = (options:Options)=>{
         }
       }, []);
       
-      return { data, progress, isLoading, refetch };
+      return { data, isLoading, refetch };
     };
 export default useGetContents;
