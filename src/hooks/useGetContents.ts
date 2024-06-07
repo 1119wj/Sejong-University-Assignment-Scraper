@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getActivities,  getCourses } from '@src/service'
 import type { ActivityType, Contents } from '@src/types'
 import { differenceInHours } from 'date-fns'
+import { ActivityData } from '@src/data/data'
 
 type Options = {
     enabled?: boolean
@@ -87,16 +88,26 @@ const useGetContents = (options:Options)=>{
         notificate();
       }
       const notificate = ()=>{
-        chrome.storage.local.get(({updateAt,courses,activities}) =>{
+        chrome.storage.local.get(({updateAt,courses,activities})=>{
           const factivities = activities as ActivityType[];
           const copy = [...factivities];
+          const NotificateTitles : string[] = [];
           const now = new Date();
-          if(copy.some(activity => {
+
+          copy.map((activity, i) => {
             const endAtDate = new Date(activity.endAt);
-            const hoursDiff = differenceInHours(endAtDate,now);
-            return hoursDiff>0 && hoursDiff<=48 &&activity.hasSubmitted == false;
-          }) && options.OnAlram){
-            chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: "마감일자가 얼마 남지 않은 활동이 존재합니다."});
+            const hoursDiff = differenceInHours(endAtDate, now);
+            
+            if (hoursDiff > 0 && hoursDiff <= 48 && activity.hasSubmitted == false) {
+              NotificateTitles.push(activity.courseTitle);
+            }
+          });
+          
+          console.log(NotificateTitles, "NotificateTitles");
+          if (NotificateTitles.length && options.OnAlram) {
+            NotificateTitles.map((v, i) => {
+              chrome.runtime.sendMessage({action: "createNotification", title: "알림", message: `${v}의 마감일자가 얼마 남지 않았습니다.`});
+            })
           }
         });
       }
