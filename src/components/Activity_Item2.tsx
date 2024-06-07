@@ -38,7 +38,6 @@ const Activity_item = ({activity}: Props)=>{
   
     return (
       <>
-        
         <Box borderRadius={2} display={'flex'} justifyContent={'space-between'} sx={{minHeight:'80px', maxHeight:'120px',
          alignItems:'center', 
          boxShadow:'2', 

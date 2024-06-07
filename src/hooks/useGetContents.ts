@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import { differenceInHours } from 'date-fns'
 
 import { getActivities,  getCourses } from '@src/service'
 import type { ActivityType, Contents } from '@src/types'
-import { differenceInHours } from 'date-fns'
 import { ActivityData } from '@src/data/data'
 
 type Options = {
@@ -12,8 +12,8 @@ type Options = {
 }
 const useGetContents = (options:Options)=>{
 
-    const _options = { // 객체를 스프레드 연산자로 결합할 경우
-        enabled: true, // 나중에 등장하는 객체 맴버 값으로 덮어씌워짐
+    const _options = { 
+        enabled: true, 
         refreshTime: 1000 * 60 * 20, // 20분
         onAlram: true,
         ...options, 
@@ -25,26 +25,17 @@ const useGetContents = (options:Options)=>{
         activityList: [],
         updateAt : new Date().toISOString(),
     });
+  
     const getData = async ()=>{
-        const courses = await getCourses(); //비동기적으로 코스정보배열 불러오기
-        //console.log(courses);
-        const maxProgress = courses.length*2; // Progress 표현할 변수
-        let curProgress = 0;
+        const courses = await getCourses();
         const activitiesPromises = courses.map((course) => 
           getActivities(course.id, course.title).catch((error) => {
-        // 각각의 getActivities 실행에서 오류가 발생하면, 여기서 그 오류를 캐치합니다.
           console.error(`Error getting activities for course ${course.id}:`, error);
-        return []; // 오류가 발생한 코스에 대해서는 빈 배열을 반환합니다.
+          return [];
         })
       );
-    let activities = (await Promise.all(activitiesPromises)).flat();
-        // let activities = await Promise.all(
-        //     courses.map(async course=>{ //map함수로 Promise[]을 all로 모두 resolve
-        //         return getActivities(course.title, course.id);
-        //     }
-        //     )
-        // ).then(activities=> activities.flat());
-        //console.log(activities,"From Promise");
+        let activities = (await Promise.all(activitiesPromises)).flat();
+        
         const updateAt = new Date().toISOString();
         
         chrome.storage.local.set({
@@ -59,7 +50,8 @@ const useGetContents = (options:Options)=>{
         });
         setProgress(0);
         setIsLoading(false);
-    }
+  }
+  
     const getLocalData = () => {
         console.log("getLocalData !");
         chrome.storage.local.get(({ updateAt, courses, activities }) => {

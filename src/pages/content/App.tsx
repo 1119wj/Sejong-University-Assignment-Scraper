@@ -1,7 +1,7 @@
-import { Avatar, Button, Fab, Modal, ThemeProvider, createTheme } from "@mui/material";
+import { Avatar, Fab } from "@mui/material";
 import { useState } from "react";
-
 import CustomModal from "@src/components/CustomModal";
+
 import { ActivityData } from "@src/data/data"; // for test
 
 

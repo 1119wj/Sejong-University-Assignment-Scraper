@@ -10,7 +10,6 @@ type Props = { // pos -> 현재 fetch 진행률 후에 Loading component 업데�
   //isLoading -> for Loading Component
   activityList: ActivityType[]
   selectedCourseId: string
-  pos: number
   isLoading: boolean
 }
 
@@ -26,14 +25,14 @@ const showImage = keyframes`
   }
 `;
 
-const Activity_list = ({ activityList, selectedCourseId, pos, isLoading }: Props) => {
+const Activity_list = ({ activityList, selectedCourseId, isLoading }: Props) => {
   const filteredActivities = useFilterItem(
     activityList, // test 시 ActivityData 넣고 테스트, 원본은 activityList
     selectedCourseId
   );
 
-  const Image1 = chrome.runtime.getURL('/src/assets/img/file.png');
-  const Image2 = chrome.runtime.getURL('/src/assets/img/file2.png');
+  const GoodImage = chrome.runtime.getURL('/src/assets/img/file.png');
+  const BadImage = chrome.runtime.getURL('/src/assets/img/file2.png');
   return (
     <>
       <Box sx={{ position: 'fixed', width: '100vw', height: '100vh', zIndex: -10, pointerEvents: 'none' }}>
@@ -42,10 +41,10 @@ const Activity_list = ({ activityList, selectedCourseId, pos, isLoading }: Props
             right: 0,
             top: '50%',
             transform: 'translate(100%,-50%)',
-            backgroundImage: `url(${filteredActivities.length === 0 ? Image1 : Image2})`,
+            backgroundImage: `url(${filteredActivities.length === 0 ? GoodImage : BadImage})`,
             backgroundSize: 'cover',
-            width: '150px', // 이미지 크기에 맞게 조정
-            height: '150px', // 이미지 크기에 맞게 조정
+            width: '150px',
+            height: '150px',
             animation: `${showImage} 4s ease-in-out`,
             zIndex: 1000,
           }}>
